@@ -1,13 +1,13 @@
 .card {
   /* display: none; */
-  background: grey;
   border-radius: 8px;
   overflow: hidden;
+  background: var(--cardGray);
   text-align: center;
   padding: 1.7em 0;
   position: relative;
 }
-.card::before {
+.card:before {
   content: "";
   height: 4px;
   display: block;
@@ -16,23 +16,28 @@
   right: 0;
   top: 0;
 }
-card.facebook:before {
-  background: blue;
+.card.facebook:before {
+  background: var(--facebook);
 }
 .card.twitter:before {
-  background: lightblue;
+  background: var(--twitter);
 }
 .card.instagram:before {
-  background-image: linear-gradient(to right, purple 0%, yellow 100%);
+  background-image: linear-gradient(
+    to right,
+    var(--instagram-1) 0%,
+    var(--instagram-2) 100%
+  );
 }
 .card.youtube:before {
-  background: red;
+  background: var(--youTube);
 }
+
 .card-title {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: black;
+  color: var(--cardTitle);
   font-size: 0.8em;
   font-weight: bold;
 }
@@ -49,19 +54,21 @@ card.facebook:before {
   /* border: 1px solid blue; */
   display: block;
   text-transform: uppercase;
-  color: black;
+  color: var(--cardTitle);
   letter-spacing: 4px;
   font-size: 0.7em;
 }
+
 .card-today {
   margin-top: 20px;
-  color: black;
+  color: var(--lime-green);
   font-size: 0.7em;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .card-today {
   margin-right: 5px;
 }

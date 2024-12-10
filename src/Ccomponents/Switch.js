@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
-import "../Styles/Switch.css";
+import React, { useRef, useEffect, useState } from "react";
+import "../styles/switch.css";
 
 function Switch() {
   const [checked, setChecked] = useState(false);
 
   const ref = useRef(null);
-
   function handleChange() {
     console.log(ref.current.checked);
     setChecked(ref.current.checked);
@@ -13,7 +12,7 @@ function Switch() {
       document.body.classList.remove("is-light-mode");
       document.body.classList.add("is-dark-mode");
     } else {
-      document.body.classList.remove("id-dark-mode");
+      document.body.classList.remove("is-dark-mode");
       document.body.classList.add("is-light-mode");
     }
   }
@@ -23,10 +22,18 @@ function Switch() {
       setChecked(true);
     }
   }, []);
+
   return (
     <div className="dark-mode">
       <p className="dark-mode-title">Dark Mode</p>
-      <input type="checkbox" className="checkbox" onChange={handleChange} />
+      <input
+        ref={ref}
+        type="checkbox"
+        className="checkbox"
+        checked={checked}
+        id="checkbox"
+        onChange={handleChange}
+      />
       <label className="switch" htmlFor="checkbox"></label>
     </div>
   );
